@@ -3,11 +3,13 @@
         <div class="card-img mb-5">
             <img :src="image" :alt="title" class="w-100">
         </div>
-        <div class="card-text">
-            <h2 class="text-white fs-3">{{ title }}</h2>
-            <h3 class="text-lightgray fs-5">{{ author }}</h3>
-            <h4 class="text-lightgray fs-5">{{ year }}</h4>
-            <h5 class="text-white fs-5">{{ genre }}</h5>
+        <div class="card-text h-100 d-flex flex-column justify-content-center">
+            <div>
+                <h2 class="text-white fs-3">{{ title }}</h2>
+                <h3 class="text-lightgray fs-5">{{ author }}</h3>
+                <h4 class="text-lightgray fs-5">{{ year }}</h4>
+                <h5 class="text-white fs-5">{{ genre }}</h5>
+            </div>
         </div>
     </div>
 </template>
@@ -32,7 +34,6 @@ export default {
         max-height: 800px;
 
         .card-text{
-            height: 100%;
             padding-top: 20px;
             padding-bottom: 70px;
         }
