@@ -32,11 +32,10 @@ export default {
         max-height: 800px;
 
         .card-img{
-            height: 50%;
         }
         .card-text{
+            height: 100%;
             padding-top: 20px;
-            height: 50%;
         }
     }
 
