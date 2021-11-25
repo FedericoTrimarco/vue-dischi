@@ -1,6 +1,6 @@
 <template>
   <div class="my-card text-center h-100 p-3 d-flex flex-column">
-        <div class="card-img">
+        <div class="card-img mb-5">
             <img :src="image" :alt="title" class="w-100">
         </div>
         <div class="card-text">
