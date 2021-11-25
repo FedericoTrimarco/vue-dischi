@@ -1,19 +1,23 @@
 <template>
-  <div id="spotify">
+  <div id="app">
     <!-- header -->
       <Header />
     <!-- main -->
-
+    <main>
+      <MainCards />
+    </main>
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue'
+import MainCards from '@/components/MainCards.vue'
 
 export default {
   name: 'App',
   components: {
     Header,
+    MainCards,
   }
 }
 </script>
@@ -22,9 +26,14 @@ export default {
 @import '~bootstrap/scss/bootstrap';
 @import '@/style/variables';
 
-#spotify{
+#app{
   background-color: $primary-color;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  main{
+      flex-grow: 1;
+  }
 }
 
 </style>
