@@ -54,7 +54,4 @@ export default {
         margin: 0 auto;
         padding-top: 70px;
     }
-    /* li{
-        height: 500px;
-    } */
 </style>
