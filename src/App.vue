@@ -27,12 +27,13 @@ export default {
 @import '@/style/variables';
 
 #app{
-  background-color: $primary-color;
   display: flex;
+  height: 100%;
   flex-direction: column;
 
   main{
       flex-grow: 1;
+      background-color: $primary-color;
   }
 }
 
