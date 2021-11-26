@@ -30,6 +30,7 @@ export default {
     .my-card{
         background-color: #2e3a46;
         max-height: 800px;
+        border-radius: 5px;
 
         .card-text{
             padding-top: 20px;
