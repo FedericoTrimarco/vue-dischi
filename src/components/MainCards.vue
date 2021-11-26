@@ -1,8 +1,8 @@
 <template>
   <div class="my-container">
       <div class="container-fluid d-flex justify-content-center align-items-center h-100">
-        <ul v-if="MainCardsList !== null" class="d-flex flex-wrap list-unstyled justify-content-center">
-            <li v-for="(card, index) in MainCardsList" :key="`${index}`" class="col-lg-2 col-md-4 col-sm-6  col-12 px-4 mb-4">
+        <ul v-if="MainCardsGenre !== null" class="d-flex flex-wrap list-unstyled justify-content-center">
+            <li v-for="(card, index) in MainCardsGenre" :key="`${index}`" class="col-lg-2 col-md-4 col-sm-6  col-12 px-4 mb-4">
 
                 <CardProp :image="card.poster" :title="card.title" :author="card.author" :year="card.year" :genre="card.genre"/>
 
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 import CardProp from '@/components/CardProp.vue'
 import Loader from '@/components/Loader.vue'
 export default {
@@ -23,7 +23,10 @@ export default {
         CardProp,
         Loader,
     },
-    data(){
+    props:{
+        MainCardsGenre: Array,
+    }
+/*     data(){
         return{
             apiUrl: 'https://flynn.boolean.careers/exercises/api/array/music',
             MainCardsList: null,
@@ -44,7 +47,7 @@ export default {
                 console.log(error);
             })
         }
-    }
+    } */
 }
 </script>
 

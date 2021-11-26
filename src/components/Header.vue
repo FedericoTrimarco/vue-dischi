@@ -1,9 +1,9 @@
 <template>
   <header class="d-flex justify-content-between align-items-center">
       <img src="../assets/logo.png" alt="spotify-logo">
-      
-      <select v-model="genre" class="text-white">
-          <option value="">Genere Musicale</option>
+
+      <select v-model="genre" class="text-white" @change="$emit('performSearch', genre)">
+          <option value="">Tutti i generi</option>
           <option value="Rock">Rock</option>
           <option value="Pop">Pop</option>
           <option value="Jazz">Jazz</option>
