@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- header -->
-      <Header @performSearch="searchGenre"/>
+      <Header @performSearch="searchGenre" :cardsArray="listGenr"/>
     <!-- main -->
     <main>
       <MainCards :MainCardsGenre="filteredGenre"/>
@@ -21,10 +21,11 @@ export default{
     MainCards,
   },
 
-  data(){
-    return{
+  data() {
+    return {
       apiUrl: 'https://flynn.boolean.careers/exercises/api/array/music',
       MainCardsList: null,
+      listGenr: [],
       genre: '',
     }
   },
@@ -36,13 +37,16 @@ export default{
       }
 
       return this.MainCardsList.filter(item => {
-        return item.genre.toLowerCase().includes( this.genre.toLowerCase())
+        return item.genre.includes( this.genre)
       });
-    }
+    },
+
+    
   },
 
-  created(){
+  created() {
     this.genCard();
+
   },
 
   methods:{
@@ -50,18 +54,26 @@ export default{
       axios.get(this.apiUrl)
       .then(el => {
 
-        console.log(el.data);
         this.MainCardsList = el.data.response;
-        console.log('lello',this.MainCardsList);
-        
+        this.filteredChoisGenre()
+
       })
         .catch(error => {
-            console.log(error);
+          console.log(error);
         })
     },
-    searchGenre(text){
-          this.genre = text;
-    }
+    searchGenre(text) {
+      this.genre = text;
+    },
+    filteredChoisGenre(){
+         this.MainCardsList.forEach(el => {
+           if(!this.listGenr.includes(el.genre)){
+              this.listGenr.push(el.genre)
+           }
+         });
+           
+    },
+
   }
 }
 </script>
