@@ -4,12 +4,10 @@
             <img :src="image" :alt="title" class="w-100">
         </div>
         <div class="card-text h-100 d-flex flex-column justify-content-center">
-            <div>
-                <h2 class="text-white fs-3">{{ title }}</h2>
-                <h3 class="text-lightgray fs-5">{{ author }}</h3>
-                <h4 class="text-lightgray fs-5">{{ year }}</h4>
-                <h5 class="text-white fs-5">{{ genre }}</h5>
-            </div>
+            <h2 class="text-white fs-3">{{ title }}</h2>
+            <h3 class="text-lightgray fs-5">{{ author }}</h3>
+            <h4 class="text-lightgray fs-5">{{ year }}</h4>
+            <h5 class="text-white fs-5">{{ genre }}</h5>
         </div>
     </div>
 </template>
