@@ -40,13 +40,11 @@ export default{
         return item.genre.includes( this.genre)
       });
     },
-
     
   },
 
   created() {
     this.genCard();
-
   },
 
   methods:{
