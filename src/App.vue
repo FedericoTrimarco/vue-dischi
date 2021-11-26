@@ -14,52 +14,55 @@ import axios from 'axios';
 import Header from '@/components/Header.vue'
 import MainCards from '@/components/MainCards.vue'
 
-export default {
-    name: 'App',
-    components: {
-        Header,
-        MainCards,
-    },
-    data(){
-      return{
-          apiUrl: 'https://flynn.boolean.careers/exercises/api/array/music',
-          MainCardsList: null,
-          genre: '',
+export default{
+  name: 'App',
+  components: {
+    Header,
+    MainCards,
+  },
+
+  data(){
+    return{
+      apiUrl: 'https://flynn.boolean.careers/exercises/api/array/music',
+      MainCardsList: null,
+      genre: '',
+    }
+  },
+
+  computed: {
+    filteredGenre(){
+      if(this.genre === ''){
+        return this.MainCardsList;
       }
-    },
 
-    computed: {
-        filteredGenre(){
-            if(this.genre === ''){
-                return this.MainCardsList;
-            }
+      return this.MainCardsList.filter(item => {
+        return item.genre.toLowerCase().includes( this.genre.toLowerCase())
+      });
+    }
+  },
 
-            return this.MainCardsList.filter(item => {
-               return item.genre.toLowerCase().includes( this.genre.toLowerCase())
-            });
-        }
-    },
+  created(){
+    this.genCard();
+  },
 
-    created(){
-      this.genCard();
-    },
+  methods:{
+    genCard() {
+      axios.get(this.apiUrl)
+      .then(el => {
 
-    methods:{
-      genCard() {
-        axios.get(this.apiUrl)
-        .then(el => {
-            console.log(el.data);
-            this.MainCardsList = el.data.response;
-            console.log('lello',this.MainCardsList);
-        })
+        console.log(el.data);
+        this.MainCardsList = el.data.response;
+        console.log('lello',this.MainCardsList);
+        
+      })
         .catch(error => {
             console.log(error);
         })
-      },
-      searchGenre(text){
+    },
+    searchGenre(text){
           this.genre = text;
-      }
     }
+  }
 }
 </script>
 

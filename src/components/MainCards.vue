@@ -14,7 +14,6 @@
 </template>
 
 <script>
-// import axios from 'axios';
 import CardProp from '@/components/CardProp.vue'
 import Loader from '@/components/Loader.vue'
 export default {
